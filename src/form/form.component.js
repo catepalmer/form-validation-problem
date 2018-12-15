@@ -4,37 +4,34 @@ import './form.css'
 import { submitForm, updateAnimal, updateForm } from './form.actions'
 import { errorMessage, getErrors, isError } from './form.utilities'
 
-class Form extends React.Component {
-  constructor(props) {
-    super(props)
-    console.log(props)
-  }
 
-  handleSubmit (e) {
-    e.preventDefault()
+function handleSubmit () {
     const errors = getErrors()
     submitForm(errors)
   }
 
-  render () {
+export default function Form(errors, success) {
 
-  if (this.props.success) return <h1>Thanks! Your information has been successfully submitted</h1>
+  if (success) return <h1>Thanks! Your information has been successfully submitted</h1>
 
   return (
-    <form method='post' action='' onSubmit={e => this.handleSubmit(e).bind(this)}>
+    <form method='post' action='' onSubmit={e => {
+      e.preventDefault()
+      return handleSubmit}}>
+      
       <h1>Fill out this awesome form</h1>
 
       <fieldset>
         <h3>Your details</h3>
 
-        <p className={isError('email', this.props.errors)}>
+        <p className={isError('email', errors)}>
           <label className='label' htmlFor='email'>
             Email
           </label>
           <input type='text' id='email' name='email' onChange={updateForm} />
         </p>
 
-        <p className={isError('password', this.props.errors)}>
+        <p className={isError('password', errors)}>
           <label className='label' htmlFor='password'>
             Password
           </label>
@@ -44,7 +41,7 @@ class Form extends React.Component {
 
       <fieldset>
         <h3>Your animal</h3>
-        <p className={isError('colour', this.props.errors)}>
+        <p className={isError('colour', errors)}>
           <label className='label' htmlFor='colour'>
             Colour
           </label>
@@ -58,7 +55,7 @@ class Form extends React.Component {
           </select>
         </p>
 
-        <p className={isError('animal', this.props.errors)}>
+        <p className={isError('animal', errors)}>
           <span className="label">
             Animal
           </span>
@@ -85,15 +82,15 @@ class Form extends React.Component {
 
         </p>
 
-        <p className={isError('tiger', this.props.errors)}>
+        <p className={isError('tiger', errors)}>
           <label className='label' htmlFor='tiger_type'>
             Type of tiger
           </label>
           <input type='text' name='tiger_type' id='tiger_type' onChange={updateForm} />
         </p>
       </fieldset>
-      {this.props.errors.length > 0 && <span id="errorMessages">
-        {this.props.errors.map((error, i) => <p key={i} className="error">
+      {errors.length > 0 && <span id="errorMessages">
+        {errors.map((error, i) => <p key={i} className="error">
           {errorMessage(error)}
         </p>)}
       </span>}
@@ -107,14 +104,14 @@ class Form extends React.Component {
     </form>
   )
 }
-}
-
-export default Form
 
 
 
 
-// export default function Form(errors, success) {
+
+// export default function Form(success) {
+//   const [errors, setErrors] = useState([])
+
 
 //   if (success) return <h1>Thanks! Your information has been successfully submitted</h1>
 
