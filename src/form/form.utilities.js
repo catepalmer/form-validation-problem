@@ -13,10 +13,7 @@ function getErrors (props) {
   
 
 function isError (value, errors) {
-
-  return errors.includes(value)
-    ? 'error'
-    : ''
+  if( errors.includes(value)) return 'error'
 }
   
 
