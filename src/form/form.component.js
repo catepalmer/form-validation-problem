@@ -7,11 +7,6 @@ import { errorMessage, getErrors, isError } from './form.utilities'
 class Form extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      errors: [],
-      success: false
-    }
   }
 
   handleSubmit (props, e) {
