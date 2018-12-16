@@ -5,22 +5,10 @@ import {createStore, compose} from 'redux'
 
 import reducer from './form/form.reducer'
 import App from './app/app.component'
-// import * as serviceWorker from './serviceWorker'
 
 const store = createStore(reducer, compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f
+  window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
 ))
-
-// render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('app')
-// )
-
-// serviceWorker.unregister()
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
@@ -30,3 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('app')
   )
 })
+
+

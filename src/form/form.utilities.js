@@ -1,35 +1,33 @@
-function getErrors (e, state) {
-    e.preventDefault()
+function getErrors (props) {
+  const errors = []
+  const { animals, colour, email, password, tigerType } = props
   
-    const { password, email, colour, animal, tiger_type } = state
-    const errors = []
+  if (animals.length < 2) errors.push('animals')
+  if (colour.length < 1) errors.push('colour')
+  if (!/(.+)@(.+){2,}\.(.+){2,}/.test(email)) errors.push('email')
+  if (password.length < 8) errors.push('password')
+  if (animals.includes('tiger') && tigerType.length < 1) errors.push('tiger')
   
-    if (password.length < 8) errors.push('password')
-    if (!/(.+)@(.+){2,}\.(.+){2,}/.test(email)) errors.push('email')
-    if (!colour.length) errors.push('colour')
-    if (animal.length < 2) errors.push('animal')
-    if (animal.includes("tiger") && !tiger_type.length) errors.push('tiger')
+  return errors
+}
   
-    return errors
-  }
+
+function isError (value, errors) {
+
+  return errors.includes(value)
+    ? 'error'
+    : ''
+}
   
-  function isError (value, errors) {
-    //provide error class to an element type
-    return errors.includes(value)
-      ? 'error'
-      : ''
-  }
+
+function errorMessage (errorType) {
+
+  return (errorType === 'animals') ? 'Please select two or more animals.' :
+         (errorType === 'colour') ? 'Please select a colour.' :
+         (errorType === 'email') ? 'Please enter a valid email address.' :
+         (errorType === 'password') ? 'Password length must be eight or more characters.' :
+         (errorType === 'tigerType') ? 'Please specify the type of tiger.' : ''
+}
   
-  function errorMessage(errorType) {
-    //switch to translate error types into error messages
-    switch (errorType) {
-      case 'password': return 'Password must be at least 8 characters long.'
-      case 'email': return 'Email is invalid.'
-      case 'colour': return 'Please select a colour.'
-      case 'animal': return 'You must select 2 or more animal types.'
-      case 'tiger': return 'Please specify the type of Tiger.'
-      default: return
-    }
-  }
-  
-  export { errorMessage, getErrors, isError }
+
+export { errorMessage, getErrors, isError }

@@ -1,29 +1,21 @@
 const initialState = {
-    animal: [],
+    animals: [],
     colour: '',
     email: '',
-    errors: [],
     password: '',
-    success: false,
-    tiger_type: ''
+    tigerType: ''
   }
   
   export default function reducer (state = initialState, { payload = {}, type }) {
-    const { e, errors, success, value } = payload
+    const { e, value } = payload
   
     switch (type) {
-      case 'SUBMIT_FORM':
+      case 'UPDATE_ANIMALS':
         return {
           ...state,
-          errors,
-          success
-        }
-      case 'UPDATE_ANIMAL':
-        return {
-          ...state,
-          animal: state.animal.includes(value)
-            ? [...state.animal].filter(animal => animal !== value)
-            : [...state.animal, value]
+          animals: state.animals.includes(value)
+            ? [...state.animals].filter(animal => animal !== value)
+            : [...state.animals, value]
         }
       case 'UPDATE_FORM':
         return {
