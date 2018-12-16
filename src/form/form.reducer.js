@@ -6,7 +6,7 @@ const initialState = {
     tigerType: ''
   }
   
-  export default function reducer (state = initialState, { payload = {}, type }) {
+function reducer (state = initialState, { payload = {}, type }) {
     const { e, value } = payload
   
     switch (type) {
@@ -26,3 +26,5 @@ const initialState = {
         return state
     }
   }
+
+  export { initialState, reducer }

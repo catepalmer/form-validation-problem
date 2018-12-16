@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components:Form renders the Form component 1`] = `
+exports[`Renders the Form component 1`] = `
 <form
   action=""
   method="post"
