@@ -1,3 +1,13 @@
+function submitForm (errors) {
+  return {
+    type: 'SUBMIT_FORM',
+    payload: {
+      errors,
+      success: errors.length === 0
+    }
+  }
+}
+
 function updateForm (e) {
   return {
     type: 'UPDATE_FORM',
@@ -16,4 +26,4 @@ function updateAnimals (e) {
   }
 }
   
-export { updateAnimals, updateForm }
+export { submitForm, updateAnimals, updateForm }

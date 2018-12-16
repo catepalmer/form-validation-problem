@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 
 import Form from './form.component'
-import { updateAnimals, updateForm } from './form.actions'
+import { submitForm, updateAnimals, updateForm } from './form.actions'
 
 function mapDispatchToProps(dispatch) {
   return {
+    submitForm: (errors) => dispatch(submitForm(errors)),
     updateAnimals: (e) => dispatch(updateAnimals(e)),
     updateForm: (e) => dispatch(updateForm(e))
   }

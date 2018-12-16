@@ -2,14 +2,22 @@ const initialState = {
     animals: [],
     colour: '',
     email: '',
+    errors: [],
     password: '',
+    success: false,
     tigerType: ''
   }
   
 function reducer (state = initialState, { payload = {}, type }) {
-    const { e, value } = payload
+    const { e, errors, success, value } = payload
   
     switch (type) {
+      case 'SUBMIT_FORM':
+        return {
+          ...state,
+          errors,
+          success
+        }
       case 'UPDATE_ANIMALS':
         return {
           ...state,

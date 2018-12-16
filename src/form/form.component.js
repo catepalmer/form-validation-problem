@@ -17,15 +17,11 @@ class Form extends React.Component {
   handleSubmit (props, e) {
     e.preventDefault()
     const errors = getErrors(props)
-    this.setState({
-      errors,
-      success: errors.length === 0
-    })
+    this.props.submitForm(errors)
   }
 
   render() {
-    const { updateAnimals, updateForm } = this.props
-    const { errors, success } = this.state
+    const { errors, success, updateAnimals, updateForm } = this.props
 
     if (success) return <h1>Your information has been successfully submitted</h1>
 

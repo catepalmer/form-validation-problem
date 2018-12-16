@@ -1,11 +1,8 @@
-import Enzyme, { shallow } from 'enzyme'
+import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import toJson from 'enzyme-to-json'
 import 'jest-enzyme'
-import React from 'react'
 
 import { updateAnimals, updateForm } from './form.actions'
-import Form from './form.component'
 import { initialState, reducer } from './form.reducer'
 import { errorMessage, getErrors, isError } from './form.utilities'
 
@@ -15,23 +12,6 @@ Enzyme.configure({ adapter: new Adapter() })
 //INITIALISATION
 test('Test suite working', () => {
   expect(true).toBe(true)
-})
-
-test('initialState is as expected', () => {
-  const expectedState = {
-      errors: [],
-      success: false
-  }
-  const wrapper = shallow(<Form />)
-  const actualState = wrapper.instance().state
-
-  expect(actualState).toEqual(expectedState)
-})
-
-
-//FORM COMPONENT
-test('Renders the Form component', () => {
-  expect(toJson(shallow(<Form />))).toMatchSnapshot()
 })
 
 
@@ -160,7 +140,7 @@ test('Reducer updates a string value field', () => {
 //errorMessage
 test('errorMessage returns an error message according to the error type', () => {
   const testErrorType = 'password'
-  expect(errorMessage(testErrorType)).toBe('Password length must be eight or more characters.')
+  expect(errorMessage(testErrorType)).toBe('Password must be at least 8 characters.')
 })
 
 test('errorMessage returns an empty string if there is no error type provided', () => {
