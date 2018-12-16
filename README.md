@@ -13,14 +13,14 @@ cd form-validation-problem
 Install the modules:
 ```
 npm install
-    or
+    -or-
 yarn install
 ```
 
 Run the app on your local server:
 ```
 npm start
-    or
+    -or-
 yarn start
 ```
 
@@ -28,7 +28,7 @@ This runs the app in development mode.<br>
 The app will open automatically in a new browser tab at http://localhost:3000.
 
 The page should look like this:
-![Full page](./images.formdemo.png)
+![Basic form page](https://github.com/catepalmer/form-validation-problem/blob/gh-pages/images/formdemo.png)
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
@@ -39,7 +39,7 @@ You will also see any lint errors in the console.
 To run the test suite:
 ```
 npm test
-   or
+    -or-
 yarn test
 ```
 
