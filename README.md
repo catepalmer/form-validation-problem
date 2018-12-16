@@ -41,10 +41,10 @@ npm test
 yarn test
 ```
 
+This launches the test runner in interactive watch mode.
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
 All of the tests should pass:
 
 ![All tests pass](https://github.com/catepalmer/form-validation-problem/blob/gh-pages/images/testsdemo.png)
-
-This launches the test runner in interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
