@@ -16,6 +16,7 @@ test('Test suite working', () => {
 
 
 //ACTIONS
+//updateForm
 test('Produces the correct action when the form is updated', () => {
   const testEvent = {
     target: {
@@ -31,7 +32,7 @@ test('Produces the correct action when the form is updated', () => {
   })
 })
 
-
+//updateAnimals
 test('Produces the correct action when an animal is selected', () => {
   const testEvent = {
     target: {
@@ -58,6 +59,7 @@ test('Reducer handles an unknown action type by returning the state unchanged', 
   const state = 'state'
   expect(reducer(state, {})).toBe(state)
 })
+
 
 //type: 'UPDATE_ANIMALS'
 test('Reducer handles selection of an animal by appending animal type to the animals array', () => {

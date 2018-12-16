@@ -6,6 +6,7 @@ import { errorMessage, getErrors, isError } from './form.utilities'
 
 class Form extends React.Component {
 
+  //Handle the form submission by preventing an attempt to post to the server, retrieving the errors array from props, and calling the submitForm function from props with the errors array as an argument
   handleSubmit (props, e) {
     e.preventDefault()
     const errors = getErrors(props)
@@ -15,8 +16,10 @@ class Form extends React.Component {
   render() {
     const { errors, success, updateAnimals, updateForm } = this.props
 
+    //If the success value is set to true, return the success message
     if (success) return <h1>Thanks! Your information has been successfully submitted</h1>
 
+    //If the success value is set to false, return the form
     return (
       <form method='post' action='' onSubmit={this.handleSubmit.bind(this, this.props)}>
         <h1>Fill out this awesome form</h1>
@@ -89,6 +92,7 @@ class Form extends React.Component {
                 <input type='text' name='tigerType' id='tigerType' onChange={updateForm} />
               </p>
             </fieldset>
+            {/* If there are errors in the errors array, display the error messages */}
             {(errors.length > 0 && <span id='errorMessages'>
                 {errors.map((error, i) => <p key={i} className='error'>{errorMessage(error)}</p>)}
             </span>)}

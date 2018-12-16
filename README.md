@@ -1,4 +1,5 @@
-# Springload Form Validation Test - Cate Palmer
+# Springload Form Validation Test
+## Cate Palmer
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -39,6 +40,10 @@ npm test
     -or-
 yarn test
 ```
+
+All of the tests should pass:
+
+![All tests pass](https://github.com/catepalmer/form-validation-problem/blob/gh-pages/images/testsdemo.png)
 
 This launches the test runner in interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
