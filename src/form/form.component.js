@@ -5,9 +5,6 @@ import { errorMessage, getErrors, isError } from './form.utilities'
 
 
 class Form extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   handleSubmit (props, e) {
     e.preventDefault()
@@ -18,7 +15,7 @@ class Form extends React.Component {
   render() {
     const { errors, success, updateAnimals, updateForm } = this.props
 
-    if (success) return <h1>Your information has been successfully submitted</h1>
+    if (success) return <h1>Thanks! Your information has been successfully submitted</h1>
 
     return (
       <form method='post' action='' onSubmit={this.handleSubmit.bind(this, this.props)}>
@@ -92,10 +89,9 @@ class Form extends React.Component {
                 <input type='text' name='tigerType' id='tigerType' onChange={updateForm} />
               </p>
             </fieldset>
-            {(errors.length > 0) ?
-              <span id='errorMessages'>
+            {(errors.length > 0 && <span id='errorMessages'>
                 {errors.map((error, i) => <p key={i} className='error'>{errorMessage(error)}</p>)}
-              </span> : ''}
+            </span>)}
 
           <fieldset>
             <p>

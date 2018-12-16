@@ -1,3 +1,5 @@
+import { SUBMIT_FORM, UPDATE_ANIMALS, UPDATE_FORM } from './form.constants'
+
 const initialState = {
     animals: [],
     colour: '',
@@ -12,20 +14,20 @@ function reducer (state = initialState, { payload = {}, type }) {
     const { e, errors, success, value } = payload
   
     switch (type) {
-      case 'SUBMIT_FORM':
+      case SUBMIT_FORM:
         return {
           ...state,
           errors,
           success
         }
-      case 'UPDATE_ANIMALS':
+      case UPDATE_ANIMALS:
         return {
           ...state,
-          animals: state.animals.includes(value)
+          animals: state.animals.find(animal => animal === value)
             ? [...state.animals].filter(animal => animal !== value)
             : [...state.animals, value]
         }
-      case 'UPDATE_FORM':
+      case UPDATE_FORM:
         return {
           ...state,
           [e.target.name]: e.target.value

@@ -234,8 +234,8 @@ test('isError returns "error" when the value passed is included in the errors ar
   expect(isError(testValue, testErrors)).toEqual('error')
 })
 
-test('isError returns an empty string when the value passed is not included in the errors array', () => {
+test('isError returns undefined when the value passed is not included in the errors array', () => {
   const testValue = 'email'
   const testErrors = ['animals', 'colour', 'tigerType']
-  expect(isError(testValue, testErrors)).toEqual('')
+  expect(isError(testValue, testErrors)).toEqual(undefined)
 })

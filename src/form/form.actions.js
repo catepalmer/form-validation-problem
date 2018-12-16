@@ -1,6 +1,8 @@
+import { SUBMIT_FORM, UPDATE_ANIMALS, UPDATE_FORM } from './form.constants'
+
 function submitForm (errors) {
   return {
-    type: 'SUBMIT_FORM',
+    type: SUBMIT_FORM,
     payload: {
       errors,
       success: errors.length === 0
@@ -10,7 +12,7 @@ function submitForm (errors) {
 
 function updateForm (e) {
   return {
-    type: 'UPDATE_FORM',
+    type: UPDATE_FORM,
     payload: {
       e
     }
@@ -19,7 +21,7 @@ function updateForm (e) {
   
 function updateAnimals (e) {
   return {
-    type: 'UPDATE_ANIMALS',
+    type: UPDATE_ANIMALS,
     payload: {
       value: e.target.value
     }
